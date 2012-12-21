@@ -17,13 +17,13 @@ public class Controller {
   PortalRequest request;
 
   @Inject
-  @Path("nav.gtmpl")
-  Template nav;
+  @Path("index.gtmpl")
+  Template index;
 
   @View
   public Response.Render index() {
     LinkedHashMap<String, String> nodes = build(request.getNode());
-    return nav.with().set("nodes", nodes).render();
+    return index.with().set("nodes", nodes).render();
   }
 
   private LinkedHashMap<String, String> build(Node current) {

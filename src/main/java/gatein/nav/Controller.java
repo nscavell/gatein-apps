@@ -20,8 +20,8 @@ public class Controller {
   PortalRequest request;
 
   @Inject
-  @Path("nav.gtmpl")
-  Template nav;
+  @Path("index.gtmpl")
+  Template index;
 
   @View
   public Response.Render index() {
@@ -38,6 +38,6 @@ public class Controller {
       }
     }
 
-    return nav.with().set("nodes", nodes).render();
+    return index.with().set("nodes", nodes).render();
   }
 }

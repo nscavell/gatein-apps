@@ -1,0 +1,14 @@
+<div class="gtn" style="padding: 4px">
+  <ul class="breadcrumb">
+    <% nodes.eachWithIndex { name, url, i ->
+      if (i == nodes.size() - 1) { %>
+      <li class="active">${name}</li>
+      <% } else { %>
+      <li>
+        <a href="${url}">${name}</a>
+        <span class="divider">/</span>
+      </li>
+      <% } %>
+    <% } %>
+  </ul>
+</div>
