@@ -2,7 +2,6 @@ package gatein;
 
 import juzu.inject.ProviderFactory;
 import org.gatein.api.PortalRequest;
-import org.gatein.api.navigation.Navigation;
 
 import javax.inject.Provider;
 
@@ -13,10 +12,10 @@ import javax.inject.Provider;
  */
 public class GateInProviderFactory implements ProviderFactory {
   public <T> Provider<? extends T> getProvider(final Class<T> implementationType) throws Exception {
-    if (Navigation.class.isAssignableFrom(implementationType)) {
+    if (PortalRequest.class == implementationType) {
       return new Provider<T>() {
         public T get() {
-          return implementationType.cast(PortalRequest.getInstance().getNavigation());
+          return implementationType.cast(PortalRequest.getInstance());
         }
       };
     } else {

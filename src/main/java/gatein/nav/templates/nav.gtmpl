@@ -1,0 +1,11 @@
+#{decorate path=main.gtmpl/}
+
+<ul class="nav nav-pills">
+  <% nodes.each { name, url ->
+    def active = url == "#" ? "active" : ""
+    %>
+    <li class="${active}">
+        <a href="${url}">${name}</a>
+    </li>
+  <% } %>
+</ul>
