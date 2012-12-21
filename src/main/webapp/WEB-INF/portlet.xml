@@ -19,4 +19,19 @@
        <title>Navigation Portlet</title>
      </portlet-info>
    </portlet>
+   <portlet>
+     <portlet-name>BreadcrumbsPortlet</portlet-name>
+     <display-name xml:lang="EN">Breadcrumbs Portlet</display-name>
+     <portlet-class>gatein.breadcrumbs.BreadcrumbsPortlet</portlet-class>
+     <init-param>
+       <name>juzu.inject</name>
+       <value>guice</value>
+     </init-param>
+     <supports>
+       <mime-type>text/html</mime-type>
+     </supports>
+     <portlet-info>
+       <title>Breadcrumbs Portlet</title>
+     </portlet-info>
+   </portlet>
 </portlet-app>
