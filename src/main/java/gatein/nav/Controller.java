@@ -11,7 +11,7 @@ import org.gatein.api.navigation.Nodes;
 import org.gatein.api.navigation.Visibility;
 
 import javax.inject.Inject;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 /** @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a> */
 public class Controller {
@@ -30,14 +30,13 @@ public class Controller {
     if (parent == null) {
       parent = current;
     }
-    HashMap<String, String> nodes = new HashMap<String, String>();
+    LinkedHashMap<String, String> nodes = new LinkedHashMap<String, String>();
     for (Node child : request.getNavigation().getNode(parent, Nodes.visitChildren())) {
       if (child.isVisible() && child.getVisibility().getStatus() != Visibility.Status.SYSTEM) {
         String name = child.resolveDisplayName();
         nodes.put(name, child.getNodePath().equals(current) ? "#" : child.resolveURI().toString());
       }
     }
-
     return index.with().set("nodes", nodes).render();
   }
 }
