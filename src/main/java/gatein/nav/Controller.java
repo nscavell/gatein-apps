@@ -31,10 +31,10 @@ public class Controller {
       parent = current;
     }
     LinkedHashMap<String, String> nodes = new LinkedHashMap<String, String>();
-    for (Node child : request.getNavigation().getNode(parent, Nodes.visitChildren())) {
+    for (Node child : request.getNavigation().getNode(parent, Nodes.visitChildren()).filter(request.getNodeFilter())) {
       if (child.isVisible() && child.getVisibility().getStatus() != Visibility.Status.SYSTEM) {
-        String name = child.resolveDisplayName();
-        nodes.put(name, child.getNodePath().equals(current) ? "#" : child.resolveURI().toString());
+        String name = child.getDisplayName();
+        nodes.put(name, child.getNodePath().equals(current) ? "#" : child.getURI().toString());
       }
     }
     return index.with().set("nodes", nodes).render();

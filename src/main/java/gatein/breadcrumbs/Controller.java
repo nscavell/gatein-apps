@@ -6,6 +6,7 @@ import juzu.View;
 import juzu.template.Template;
 import org.gatein.api.PortalRequest;
 import org.gatein.api.navigation.Node;
+import org.gatein.api.navigation.Nodes;
 
 import javax.inject.Inject;
 import java.util.LinkedHashMap;
@@ -22,7 +23,8 @@ public class Controller {
 
   @View
   public Response.Render index() {
-    LinkedHashMap<String, String> nodes = build(request.getNode());
+    Node current = request.getNavigation().getNode(request.getNodePath(), Nodes.visitChildren());
+    LinkedHashMap<String, String> nodes = build(current.filter(request.getNodeFilter()));
     return index.with().set("nodes", nodes).render();
   }
 
@@ -34,7 +36,7 @@ public class Controller {
     } else {
       nodes = new LinkedHashMap<String, String>();
     }
-    nodes.put(current.resolveDisplayName(), current.resolveURI().toString());
+    nodes.put(current.getDisplayName(), current.getURI().toString());
     return nodes;
   }
 }
