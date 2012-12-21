@@ -1,5 +1,5 @@
-<div class="gtn" style="padding: 4px">
-  <ul class="breadcrumb">
+<div class="gtn" style="margin-left: 8px;margin-right: 8px;padding: 4px">
+<ul class="breadcrumb" style="margin-bottom: 0px">
     <% nodes.eachWithIndex { name, url, i ->
       if (i == nodes.size() - 1) { %>
       <li class="active">${name}</li>

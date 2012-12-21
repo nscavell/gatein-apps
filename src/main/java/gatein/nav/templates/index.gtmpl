@@ -1,5 +1,5 @@
-<div class="gtn" style="padding: 4px">
-  <ul class="nav nav-pills">
+<div class="gtn" style="margin-left: 8px;margin-right: 8px; padding: 4px">
+  <ul class="nav nav-pills" style="margin-bottom: 0px">
   <% nodes.each { name, url ->
      def active = url == "#" ? "active" : "" %>
       <li class="${active}">
