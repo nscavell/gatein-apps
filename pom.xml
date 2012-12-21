@@ -33,6 +33,11 @@
       <artifactId>juzu-plugins-portlet</artifactId>
       <version>0.6.0-beta5</version>
     </dependency>
+    <dependency>
+      <groupId>org.juzu</groupId>
+      <artifactId>juzu-plugins-less</artifactId>
+      <version>0.6.0-beta5</version>
+    </dependency>
 
   </dependencies>
 
